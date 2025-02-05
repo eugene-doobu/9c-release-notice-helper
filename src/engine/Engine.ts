@@ -34,12 +34,22 @@ export default class Engine {
         const mdTextInput = document.querySelector('#mdTextInput') as HTMLTextAreaElement;
         const inputSubmitButton = document.querySelector('#inputSubmitButton') as HTMLButtonElement;
         inputSubmitButton.addEventListener('click', () =>{
-            console.log("value: " + mdTextInput.value);
             const result = this._narkDownParser.Parse(mdTextInput.value);
             for(let i = 0; i < result.length; i++){
                 if (result[i] == '') continue;
-                // TODO: 데이터 output Texts에 뿌리기
-                console.log(result[i]);
+                // 0: eng, 1: jp, 2: kr
+                if (i == 0){
+                    const engOutput = document.querySelector('#engTextArea') as HTMLTextAreaElement;
+                    engOutput.value = result[i];
+                }
+                else if (i == 1){
+                    const jpOutput = document.querySelector('#jpTextArea') as HTMLTextAreaElement;
+                    jpOutput.value = result[i];
+                }
+                else if (i == 2){
+                    const krOutput = document.querySelector('#krTextArea') as HTMLTextAreaElement;
+                    krOutput.value = result[i];
+                }
             }
         });
     }
