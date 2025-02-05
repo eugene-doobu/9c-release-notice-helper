@@ -1,17 +1,48 @@
 <!doctype html>
-
 <html lang="kr">
   <head>
     <meta charset="utf-8">
     <title>9C-RELEASE-NOTICE-HELPER</title>
     <link rel="stylesheet" href="./style.css">
   </head>
-  <body>
-    <h1>9C-RELEASE-NOTICE-HELPER</h1>
-    <p>9C-RELEASE-NOTICE-HELPER는 9C의 릴리즈 노티스를 작성하는데 도움을 주는 웹 어플리케이션입니다.</p>
-    <p>아래의 버튼을 눌러서 릴리즈 노티스를 작성해보세요.</p>
-    <a href="./release_notice.php" class="button">릴리즈 노티스 작성하기</a>
+  <body style="display: table; margin-left: auto; margin-right: auto;" class="bg(#E0E7E9)">
+    <div class="bl(6/#6C7A89) bg(#A3C6C4) rl(20) p(15) m(10) font(20) fantasy">9C-RELEASE-NOTICE-HELPER</div>
     
+    <div class="w(700) h(140) b(#000) text(left) bg(#FFFFFF)">
+        <p>9C-RELEASE-NOTICE-HELPER는 9C의 릴리즈 노트를 작성하는데 도움을 주는 웹 어플리케이션입니다.
+           아래 `Input Text`에 노션에서 내부 공유용으로 작성된 .md파일 형식의 텍스트를 넣고 `Conversion`버튼을 누르면 변환된 결과를 `Output Texts`
+           텍스트 박스들에서 확인할 수 있습니다. 해당 내용이 마음에 들면 최하단에 `ZZ`버튼을 눌러 `!!!` 저장소에 변경된 내용을 바로 적용할 수 있습니다.
+           이 때 필요한 깃허브 토큰은 1PassWord의 `?!?` 항목을 참고해 주세요.</p>
+    </div>
+    
+    <!-- md파일형식의 텍스트를 입력으로 집어넣을 input -->
+    <div style="margin-top: 10px;" class="hbox pack gap(20) p(10) b(#6C7A89)">
+      <div class="bg(#354649) c(#fff) rl(20) p(10)">Input Text(*.md)</div>
+      <input type="text" id="mdText" style="width: 60%; height: 50px;">        
+      <button id="textInputButton" class="hbox pack bg(#333) c(#fff) r(6) p(8/12) font(14/16/-1%) bold pointer">Conversion</button>
+    </div>
+    
+    <!-- output의 중간 과정을 보여줄 TextAreas -->
+    <div style="margin-top: 16px"></div>
+    <div class="bl(6/#6C7A89) bg(#A3C6C4) p(10) m(10) fantasy">Output Texts</div>
+    <div style="margin-top: 16px;" class="vbox gap(10)">
+        <div class="font(14) semibold">Kr</div>
+        <div class="w(700) h(100) b(#000) text(left) bg(#FFFFFF) scroll">한국어 공지입니다.</div>
+        <div class="font(14) semibold">Eng</div>
+        <div class="w(700) h(100) b(#000) text(left) bg(#FFFFFF) scroll">It's an English notice.</div>
+        <div class="font(14) semibold">Jp</div>
+        <div class="w(700) h(100) b(#000) text(left) bg(#FFFFFF) scroll">日本語のお知らせです。</div>
+    </div>
+    
+    <!-- Live Asset에 공지를 업데이트하는 기능 지원 -->
+    <div style="margin-top: 16px"></div>
+    <div class="bl(6/#6C7A89) bg(#A3C6C4) p(10) m(10) fantasy">Update To LiveAsset (need token from 1password)</div>
+    <div style="margin-top: 10px;" class="hbox pack gap(20) p(10) b(#6C7A89)">
+        <div class="bg(#354649) c(#fff) rl(20) p(10)">Github Token</div>
+        <input type="password" id="mdText" style="width: 60%; height: 50px;">        
+        <button id="textInputButton" class="hbox pack bg(#333) c(#fff) r(6) p(8/12) font(14/16/-1%) bold pointer">Upload</button>
+    </div>
+
     <script type="module" src="./dist/main.js"></script>
     <script src="https://unpkg.com/adorable-css@1.4.3"></script>
   </body>
